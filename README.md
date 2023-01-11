@@ -1,5 +1,7 @@
 # WiFi stealer
 
+Uses discord webhook to send wifi information. Works only with Windows PCs.
+
 Made With 💖 and Py
 
 
