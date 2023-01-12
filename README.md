@@ -37,12 +37,9 @@ Join Mega - https://mega.nz/aff=ir6YlbWlUts
 
 
 ## Compatibility
-#### [+] ```pip install io ```
-#### [+] ```pip install subprocess ```
 #### [+] ```pip install requests ```
 #### [+] ```pip install platform ```
 #### [+] ```pip install socket ```
-#### [+] ```pip install webbrowser ```
 #### [+] ```pip install dhooks ```
 #### [+] ```pip install wmi ```
 #### [+] and then your ready to go.
