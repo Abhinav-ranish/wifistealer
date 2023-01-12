@@ -1,5 +1,9 @@
 # WiFi stealer
 
+Idk if this is good news or bad news. Also my windows defender didnt go off. Frick that.
+
+Virustotal - https://www.virustotal.com/gui/file/81bcea6a956e08776b40bcacb4b7debea9789ca1ede4fa476b927cbc09fd18c9/detection
+
 Uses discord webhook to send wifi information. Works only with Windows PCs.
 
 Made With 💖 and Py
