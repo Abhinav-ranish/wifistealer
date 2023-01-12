@@ -50,5 +50,5 @@ Join Mega - https://mega.nz/aff=ir6YlbWlUts
 ## Find Me on :
 ####  [![Github] https://github.com/Abhinav-ranish
 ####  [![Instagram] https://www.instagram.com/abhinav.ranish
-####  [![Discord]  Apple®#3930
+####  [![Discord]  Anonymous Penguin#9174
 https://discord.gg/Nv3cJGD7
