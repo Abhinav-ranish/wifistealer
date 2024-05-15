@@ -15,7 +15,7 @@ Made With 💖 and Py
 
 
 ## Youtube Video -
-[![Alt text](https://img.youtube.com/vi/GZdngYPQUNU/0.jpg)](https://www.youtube.com/watch?v=GZdngYPQUNU)
+[![Alt text](https://img.youtube.com/vi/GZdngYPQUNU.jpg)](https://www.youtube.com/watch?v=GZdngYPQUNU)
 
 
 ## Consider Donating - https://paypal.me/AbhinavRanish
